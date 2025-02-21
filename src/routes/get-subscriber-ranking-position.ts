@@ -1,6 +1,5 @@
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
 import { z } from 'zod'
-import { getSubscriberInvitesCount } from '../functions/get-subscriber-invites-count'
 import { getSubscriberRankingPosition } from '../functions/get-subscriber-ranking-position'
 
 export const getSubscriberRankingPositionRoute: FastifyPluginAsyncZod =
@@ -11,6 +10,7 @@ export const getSubscriberRankingPositionRoute: FastifyPluginAsyncZod =
         schema: {
           summary: 'Get subscriber ranking position.',
           tags: ['referral'],
+          operationId: 'getSubscriberRankingPosition',
           params: z.object({
             subscriberId: z.string(),
           }),
