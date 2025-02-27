@@ -15,6 +15,7 @@ import { getSubscriberInviteClicksRoute } from './routes/get-subscriber-invite-c
 import { getSubscriberInvitesCountRoute } from './routes/get-subscriber-invites.count'
 import { getSubscriberRankingPositionRoute } from './routes/get-subscriber-ranking-position'
 import { getRankingRoute } from './routes/get-ranking'
+import { sendMessageRoute } from './routes/send-message'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -45,6 +46,8 @@ app.register(getSubscriberInviteClicksRoute)
 app.register(getSubscriberInvitesCountRoute)
 app.register(getSubscriberRankingPositionRoute)
 app.register(getRankingRoute)
+
+app.register(sendMessageRoute)
 
 app.listen({ port: env.PORT }).then(() => {
   console.log('HTTP server running')
